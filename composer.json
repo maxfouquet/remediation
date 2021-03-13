@@ -1,4 +1,6 @@
 {
+    "name": "heroku/remediation",
+    "description": "Projet de gestion des vulnérabilités des applications Orange",
     "require": {
       "ext-phalcon": ">=1.3.0"
     }
