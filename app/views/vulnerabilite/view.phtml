@@ -1,0 +1,14 @@
+<div class="page-header">
+    <h1><?php echo $vulnerabilite->description; ?></h1>
+</div>
+<p><b>Applications</b>: 
+    <?php
+        $applications = array();
+        foreach ($vulnerabilite->application as $application) {
+            $applications[] = $application->nomApp;
+        }
+        echo join(', ', $applications);
+    ?>
+</p>
+<p><b>Sévérité</b>: <?php echo $severites[$vulnerabilite->severite - 1]; ?></p>
+<p><b>Etat</b>: <?php echo $etats[$vulnerabilite->etat]; ?></p>

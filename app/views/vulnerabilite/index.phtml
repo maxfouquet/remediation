@@ -1,0 +1,66 @@
+<div class="page-header">
+  <h1>Liste des vulnérabilités</h1>
+</div>
+<p>
+  <a href="/vulnerabilite/add">Ajouter une vulnérabilité</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">description</th>
+      <th scope="col">applications</th>
+      <th scope="col"><a href="/vulnerabilite/index?field=severite&order=<?php
+        $order = $this->request->getQuery('order', '', 'DESC') === "ASC" ? "DESC" : "ASC"; echo $order; ?>">severite</a></th>
+      <th scope="col">statut</th>
+      <th scope="col">actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($vulnerabilites as $vulnerabilite) { ?>
+        <tr class="table-<?php echo $classes[$vulnerabilite->severite - 1];?>">
+            <td><?php echo $vulnerabilite->idVuln; ?></td>
+            <td><a href="/vulnerabilite/view/<?php echo $vulnerabilite->idVuln ?>"><?php echo $vulnerabilite->description; ?></a></td>
+            <td>
+              <?php
+                $applications = array();
+                foreach ($vulnerabilite->application as $application) {
+                    $applications[] = $application->nomApp;
+                }
+                echo join(', ', $applications);
+              ?>
+            </td>
+            <td><?php echo $severites[$vulnerabilite->severite - 1]; ?></td>
+            <td><?php echo $etats[$vulnerabilite->etat]; ?></td>
+            <td>
+              <?php if($role === 'responsable' && $vulnerabilite->etat == 0){ ?>
+                <a href="/vulnerabilite/correct/<?php echo $vulnerabilite->idVuln ?>" class="btn btn-sm btn-primary">Corriger</a>
+              <?php } ?>
+              <?php if($role === 'administrateur'){ ?>
+                <a href="/vulnerabilite/update/<?php echo $vulnerabilite->idVuln ?>" class="btn btn-sm btn-primary">Modifier</a>
+                <a data-toggle="modal" data-target="#deleteModal" data-href="/vulnerabilite/delete/<?php echo $vulnerabilite->idVuln; ?>" class="btn btn-sm btn-danger">Supprimer</a>
+              <?php } ?>
+            </td>
+        </tr>
+    <?php } ?>
+  </tbody>
+</table>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Etes-vous sûr ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <a class="btn btn-primary btn-delete">Confirmer</a>
+      </div>
+    </div>
+  </div>
+</div>
