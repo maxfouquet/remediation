@@ -30,19 +30,19 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '504b20246d246c17dd9ce465c584fd5d5027e433',
-    'name' => '__root__',
+    'reference' => '7ae58883a9ae5347617569f4d016cb991a77ee27',
+    'name' => 'heroku/remediation',
   ),
   'versions' => 
   array (
-    '__root__' => 
+    'heroku/remediation' => 
     array (
       'pretty_version' => 'dev-master',
       'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '504b20246d246c17dd9ce465c584fd5d5027e433',
+      'reference' => '7ae58883a9ae5347617569f4d016cb991a77ee27',
     ),
   ),
 );
