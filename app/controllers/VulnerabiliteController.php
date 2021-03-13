@@ -81,6 +81,7 @@ class VulnerabiliteController extends ControllerBase
     }
 
     public function updateAction($id){
+        $this->view->severites = array("basse", "moyenne", "haute");
         $vulnerabilite = Vulnerabilite::findFirst($id);
 
         $this->view->vulnerabilite = $vulnerabilite;

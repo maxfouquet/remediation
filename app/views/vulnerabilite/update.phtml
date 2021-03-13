@@ -9,9 +9,9 @@
   <div class="form-group">
     <label for="severite">Sévérité</label>
     <select name="severite" class="form-control" id="severite">
-      <option value="1">basse</option>
-      <option value="2">moyenne</option>
-      <option value="3">haute</option>
+      <?php foreach($severites as $index => $severite){ ?>
+        <option value="<?php echo $index + 1; ?>" <?php if($vulnerabilite->severite == $index + 1){ echo 'selected'; } ?>><?php echo $severite; ?></option>
+      <?php } ?>
     </select>
   </div>
   <div class="form-group">
