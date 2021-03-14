@@ -32,7 +32,7 @@ class Vulnerabilite extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("remediation");
+        $this->setSchema("heroku_16499beb91f934b");
         $this->setSource("vulnerabilite");
         $this->hasManyToMany('idVuln', 'Contenir', 'idVuln', 'idApp', 'Application', 'idApp');
     }

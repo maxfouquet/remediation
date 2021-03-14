@@ -20,7 +20,7 @@ class Contenir extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("remediation");
+        $this->setSchema("heroku_16499beb91f934b");
         $this->setSource("Contenir");
         $this->belongsTo('idApp', 'Application', 'idApp', ['alias' => 'Application']);
         $this->belongsTo('idVuln', 'Vulnerabilite', 'idVuln', ['alias' => 'Vulnerabilite']);

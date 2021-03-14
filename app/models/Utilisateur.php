@@ -50,7 +50,7 @@ class Utilisateur extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("remediation");
+        $this->setSchema("heroku_16499beb91f934b");
         $this->setSource("utilisateur");
         $this->belongsTo('idRole', 'Role', 'idRole', ['alias' => 'Role']);
     }

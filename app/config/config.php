@@ -10,10 +10,10 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => '',
-        'dbname'      => 'remediation',
+        'host'        => 'us-cdbr-east-03.cleardb.com',
+        'username'    => 'be103a5a5c4a38',
+        'password'    => '623d014d',
+        'dbname'      => 'heroku_16499beb91f934b',
         'charset'     => 'utf8',
     ],
     'application' => [
